@@ -1,0 +1,71 @@
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div class="profile-card">
+        <h2>Welcome, {{user.name}}</h2>
+        <div style="width: 150px; overflow: hidden;border-radius: 50%; display: flex;
+        justify-content: center; border: 3px solid #080808;
+        align-items: center;" class="mx-auto" >
+           <img [src]="user.image ? 'http://localhost:3000' + user.image : 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg'" 
+           width="100%"/>
+
+           
+           
+          
+        </div>
+        <div>
+          <label for="profileImage">Upload Profile Image:</label>
+          <input type="file" id="profileImage" onImageField  (change)="onImageSelected($event)" />
+        </div>
+
+
+
+        <!-- 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg' -->
+      
+        <form (ngSubmit)="save()">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+      
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            [(ngModel)]="user.age"
+            name="age"
+            required
+            placeholder="Enter your age"
+          />
+      
+          <label for="department">Department:</label>
+          <input
+            type="text"
+            [(ngModel)]="user.department"
+            name="department"
+            required
+            placeholder="Enter your department"
+          />
+      
+          <button type="submit">Save</button>
+        </form>
+      </div>
+</div>
+
+
+  <!-- 
+<img
+    [src]="user.profileImage ? user.profileImage : defaultImage"
+    alt="Profile Image"
+    class="profile-image"
+  />
+
+  //file input for updating profile image
+  
+    <label for="profileImage">Update Profile Image:</label>
+  <input type="file" (change)="onImageSelected($event)" name="profileImage" />
+
+  <button (click)="uploadImage()">Upload Image</button>
+
+  -->
